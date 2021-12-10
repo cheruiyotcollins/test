@@ -16,6 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/home", produces = MediaType.APPLICATION_JSON_VALUE)
-public class CarsController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CarsController.class);
+public class LoansController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoansController.class);
 }

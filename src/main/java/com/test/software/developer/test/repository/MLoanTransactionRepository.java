@@ -4,13 +4,13 @@
  */
 package com.test.software.developer.test.repository;
 
-import com.test.software.developer.test.model.CarsModel;
+import com.test.software.developer.test.model.MLoanTransaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author collins
  */
-public interface CarsRepository extends JpaRepository<CarsModel, Long> {
+public interface MLoanTransactionRepository extends JpaRepository<MLoanTransaction,Long>{
     
 }
