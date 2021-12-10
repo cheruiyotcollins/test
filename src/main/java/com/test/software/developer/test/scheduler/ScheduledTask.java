@@ -11,16 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import com.test.software.developer.test.service.LoansService;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Scanner;
-import javax.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
@@ -29,15 +25,13 @@ import org.springframework.beans.factory.annotation.Value;
 @Component
 public class ScheduledTask {
 
-    @Autowired
-    LoansService loanService;
+    
 
     private static final Logger logger = LoggerFactory.getLogger(ScheduledTask.class);
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 //     @Value("#{${scheduledInterval}")
 //    private Long scheduledInt;
-
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void scheduleTaskWithFixedRate() throws FileNotFoundException, IOException {
         try {
             File file = new File("D:\\schedule.csv");
@@ -77,26 +71,11 @@ public class ScheduledTask {
                         dayOfWeek = "invalid";
 
                 }
-//
-//                if (tempArr[0].equals(dateTimeFormatter.format(LocalDateTime.now()).toString()) && dayOfWeek.equalsIgnoreCase(LocalDate.now().getDayOfWeek().toString())) {
-//                    logger.info("***********************Excecuting scheduled task at: " + dateTimeFormatter.format(LocalDateTime.now()));
-//                    loanService.currentBalance();
-//                     loanService.vehiclesMoreThan1000();
-//                    loanService.weeklyPayment();
-//                    loanService.numberOfVehicleSold();
-//                    loanService.getAllLoans();
-//                    
-//                   
-//                }
-                  if (true) {
-                    logger.info("***********************Excecuting scheduled task at: " + dateTimeFormatter.format(LocalDateTime.now()));
-                    loanService.currentBalance();
-                    loanService.weeklyPayment();
-                    loanService.numberOfVehicleSold();
-                    loanService.getAllLoans();
-                    
-                   
+
+                if (tempArr[0].equals(dateTimeFormatter.format(LocalDateTime.now()).toString()) && dayOfWeek.equalsIgnoreCase(LocalDate.now().getDayOfWeek().toString())) {
+                    logger.info("*********Excecuting scheduled task at: " + dateTimeFormatter.format(LocalDateTime.now())+" ************");
                 }
+       
 
             }
             br.close();
